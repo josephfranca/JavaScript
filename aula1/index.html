@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="" method="post" id="formcalc" onsubmit="return false;">
+        <!--provavelmente se tiver erro, ele ta aqui-->
+        <input type="text" name="txtn1" id="txtn1">
+        <input type="text" name="txtn2" id="txtn2">
+        <input type="text" name="txtresultado" id="txtresultado">
+
+        <button onclick="somar()" id="btnsomar">+</button>
+        <!--O onclick serve para quando algum botão seja pressionado-->
+        <button onclick="subtrair()" id="btnmenos">-</button>
+        <button onclick="multiplicacao()" id="btnmulti">*</button>
+        <button onclick="dividir()" id="btndividir">/</button>
+        <div id="resultado">Resposta</div>
+    </form>
+
+
+
+
+    <!--volte aqui para colocar as caixas de teste e o onload-->
+    <script>
+        alert(teste) //o alert serve para fazer uma mensagem na tela
+
+        function somar() //No javascript é necessario sempre chamar as funções, para isso que serve o function
+        {
+            let n1 = document.getElementById("txtn1").value; //o getElementbyId pega o objeto pelo ID, o value pega o conteudo do objeto, sem o .value ele pega o objeto em si.
+            let n2 = document.getElementById("txtn2").value;
+            let result = document.getElementById("txtresultado");//sem o value, logo pegando o objeto
+            let caixaresult = document.getElementById("resultado")
+
+            let total = 0;
+
+            total = parseFloat(n1) + parseFloat(n2); //ele veio como texto e precisou ser convertido para número, ou é float (Números quebrados, com virgulas) ou é int(Números inteiros)
+
+            result.value = total;
+           // caixaresult.innerHTML = "<h1>" + total + "</h1>";
+            console.log(total);
+
+            if (total == 10) {
+                alert("validação");
+                document.getElementById("formcalc").action = "soma.php";
+                document.getElementById("formcalc").submit();
+            }
+
+        }
+
+        function subtrair() {
+            let n1 = document.getElementById("txtn1").value;
+            let n2 = document.getElementById("txtn2").value;
+            let result = document.getElementById("txtresultado");
+
+            let total = 0;
+
+            total = parseFloat(n1) - parseFloat(n2);
+
+            result.value = total;
+            //caixaresult.innerHTML = "<h1>" + total + "</h1>";
+            console.log(total);
+
+            if (total == 10) {
+                alert("validação");
+                document.getElementById("formcalc").action = "subtrair.php";
+                document.getElementById("formcalc").submit();
+            }
+        }
+
+        function multiplicacao() {
+            let n1 = document.getElementById("txtn1").value;
+            let n2 = document.getElementById("txtn2").value;
+            let result = document.getElementById("txtresultado");
+
+            let total = 0;
+
+            total = parseFloat(n1) * parseFloat(n2);
+
+            result.value = total;
+           // caixaresult.innerHTML = "<h1>" + total + "</h1>";
+            console.log(total);
+
+            if (total == 10) {
+                alert("validação");
+                document.getElementById("formcalc").action = "multiplicar.php";
+                document.getElementById("formcalc").submit();
+            }
+        }
+
+        function dividir() {
+            let n1 = document.getElementById("txtn1").value;
+            let n2 = document.getElementById("txtn2").value;
+            let result = document.getElementById("txtresultado");
+
+            let total = 0;
+
+            total = parseFloat(n1) / parseFloat(n2);
+
+            result.value = total;
+           // caixaresult.innerHTML = "<h1>" + total + "</h1>";
+            console.log("total");
+
+            if (total == 10)
+             {
+                alert("validação");
+                document.getElementById("formcalc").action = "dividir.php";
+                document.getElementById("formcalc").submit();
+            }
+        }
+
+
+    </script>
+</body>
+
+</html>
